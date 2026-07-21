@@ -15,16 +15,22 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "@prisma/adapter-pg": "^7.9.0",
+    "@prisma/client": "^7.9.0",
+    "dotenv": "^17.4.2",
     "eslint": "^10.7.0",
     "express": "^5.2.1",
+    "pg": "^8.22.0",
     "prettier": "^3.9.5",
-    "prisma": "^7.9.0",
     "typescript": "^7.0.2"
   },
   "devDependencies": {
+    "@types/node": "^26.1.1",
+    "@types/pg": "^8.20.0",
     "eslint-config-prettier": "^10.1.8",
     "git-format-staged": "^4.0.1",
     "husky": "^9.1.7",
-    "lint-staged": "^17.1.0"
+    "lint-staged": "^17.1.0",
+    "prisma": "^7.9.0"
   }
 }

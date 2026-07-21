@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: school-project-postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: school-project
+    ports:
+      - "5434:5432"
+    volumes:
+      - ./.postgres_data:/var/lib/postgresql/data
