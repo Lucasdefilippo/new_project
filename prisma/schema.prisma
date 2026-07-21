@@ -11,3 +11,46 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model Kid {
+  id         String   @id @default(uuid())
+  parent_id  Parents  @relation(fields: [parentId], references: [id])
+  parentId   String
+  teacher_id Teacher  @relation(fields: [teacherId], references: [id])
+  teacherId  String
+  name       String   @db.VarChar(50)
+  lastName   String   @db.VarChar(50)
+  birthDate  DateTime
+  role       Int      @default(0)
+  createdAt  DateTime
+  updatedAt  DateTime @updatedAt
+}
+
+model Parents {
+  id        String   @id @default(uuid())
+  kidId     Kid[]
+  name      String   @db.VarChar(50)
+  lastName  String   @db.VarChar(50)
+  user      String   @db.VarChar(100)
+  password  String   @db.VarChar(100)
+  role      Int      @default(0)
+  createdAt DateTime
+  updatedAt DateTime @updatedAt
+}
+
+model Teacher {
+  id        String   @id @default(uuid())
+  kid_id    Kid[]
+  name      String   @db.VarChar(50)
+  lastName  String   @db.VarChar(50)
+  user      String   @db.VarChar(100)
+  password  String   @db.VarChar(100)
+  role      Int      @default(0)
+  createdAt DateTime
+  updatedAt DateTime @updatedAt
+}
+
+enum Behavior {
+  Praise
+  Warning
+}
