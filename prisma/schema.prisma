@@ -4,7 +4,7 @@
 // Get a free hosted Postgres database in seconds: `npx create-db`
 
 generator client {
-  provider = "prisma-client"
+  provider = "prisma-client-js"
   output   = "../generated/prisma"
 }
 
@@ -22,7 +22,7 @@ model Kid {
   lastName   String   @db.VarChar(50)
   birthDate  DateTime
   role       Int      @default(0)
-  createdAt  DateTime
+  createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 }
 
@@ -34,7 +34,7 @@ model Parents {
   user      String   @db.VarChar(100)
   password  String   @db.VarChar(100)
   role      Int      @default(0)
-  createdAt DateTime
+  createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
@@ -46,7 +46,7 @@ model Teacher {
   user      String   @db.VarChar(100)
   password  String   @db.VarChar(100)
   role      Int      @default(0)
-  createdAt DateTime
+  createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
