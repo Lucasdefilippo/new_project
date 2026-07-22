@@ -1,14 +1,13 @@
-import { CreateParentsRepository } from "../../repositories/postgres/Parents/PostgresCreateParentsRepository.js";
+import { CreateParentsRepository } from '../../repositories/postgres/Parents/PostgresCreateParentsRepository.js'
 
 export class CreateParentsUseCase {
-  constructor() {
-    // TO DO: Make dependence injection.
-  }
-  async execute(createParentsParams) {
-    const repositories = new CreateParentsRepository();
+    constructor(CreateParentsRepository) {
+        this.createParentsRepository = CreateParentsRepository
+    }
+    async execute(createParentsParams) {
+        const result =
+            await this.createParentsRepository.execute(createParentsParams)
 
-    const result = await repositories.execute(createParentsParams);
-
-    return result;
-  }
+        return result
+    }
 }
