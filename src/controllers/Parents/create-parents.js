@@ -1,3 +1,4 @@
+import { created } from "../../helpers/http.js";
 import { CreateParentsUseCase } from "../../use-cases/Parents/create-parents.js";
 
 export class CreateParentsController {
@@ -12,6 +13,6 @@ export class CreateParentsController {
 
     const result = await createdParent.execute(createParentsParams);
 
-    return { statusCode: 201, result };
+    return created(result);
   }
 }

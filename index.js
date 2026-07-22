@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 app.post("/createParents", async (req, res) => {
   const createParentsController = new CreateParentsController();
 
-  const { statusCode, result } = await createParentsController.execute(req);
+  const { statusCode, body } = await createParentsController.execute(req);
 
-  res.status(statusCode).send(result);
+  res.status(statusCode).send(body);
 });
